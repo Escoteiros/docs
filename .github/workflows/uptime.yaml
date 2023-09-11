@@ -8,31 +8,31 @@ on:
 permissions:
   contents: write
 jobs:
-  check-artifact:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Read old data
-        uses: actions/download-artifact@v3
-        with:
-            name: uptime
+  # check-artifact:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Read old data
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #           name: uptime
   
-  generate-empty-artifact:
-    runs-on: ubuntu-latest
-    needs: ["check-artifact"]
-    if: failure()
-    steps:
-      - name: Generate empty uptime.json
-        run: echo {} > uptime.json
-      - name: Upload empty uptime.json
-        uses: actions/upload-artifact@v3
-        with:
-          name: uptime
-          path: uptime.json
+  # generate-empty-artifact:
+  #   runs-on: ubuntu-latest
+  #   needs: ["check-artifact"]
+  #   if: failure()
+  #   steps:
+  #     - name: Generate empty uptime.json
+  #       run: echo {} > uptime.json
+  #     - name: Upload empty uptime.json
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: uptime
+  #         path: uptime.json
 
       
   deploy:
     runs-on: ubuntu-latest
-    needs: ["check-artifact"]
+    # needs: ["check-artifact"]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
