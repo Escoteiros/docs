@@ -37,19 +37,12 @@ jobs:
         run: |
           python .github/scripts/uptime.py .github/uptime/uptime.json .github/uptime/uptime.md
           tree .github
-            
-      # - name: Commit & Push changes
-      #   uses: actions-js/push@master
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}              
-      #     message: "[UPTIME] updating data"      
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name "[AUTO]"
+          git status
+          git config --global user.name "[AUTO UPTIME]"
           git config --global user.email "guionardo.furlan@escoteiros.org.br"
           git commit -a -m "[UPTIME] updating data"
-          git push    
+          git push
+                
 
   mkdocs:
     runs-on: ubuntu-latest
