@@ -6,6 +6,25 @@ import sys
 
 import httpx
 
+def get_timestamp():
+    dt = datetime.datetime.now(datetime.timezone.utc)
+    utc_time = dt.replace(tzinfo=datetime.timezone.utc)
+    return int(utc_time.timestamp())
+
+def from_timestamp(timestamp: int)->datetime.datetime:
+    dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
+    return dt.replace(second=0, microsecond=0)
+  
+  
+# Getting the current date
+# and time
+dt = datetime.datetime.now(timezone.utc)
+  
+utc_time = dt.replace(tzinfo=timezone.utc)
+utc_timestamp = utc_time.timestamp()
+  
+print(utc_timestamp)
+
 URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
         'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/naoexiste']
 
@@ -44,8 +63,7 @@ def get_data_statuses(data):
     old_statuses = collections.defaultdict(list)
     statuses = {}
     for (timestamp, status_code) in data:
-        dt = datetime.datetime.fromtimestamp(
-            timestamp).replace(second=0, microsecond=0)
+        dt = from_timestamp(timestamp)
         if dt < last_24h:
             old_statuses[dt.date()].append(status_code)
         else:
@@ -88,11 +106,12 @@ def get_data_statuses(data):
 
 
 for url in URLS:
-    result = (int(datetime.datetime.utcnow().timestamp()), check_url(url))
+    result = (get_timestamp(), check_url(url))
     if url not in uptime_data:
         uptime_data[url] = []
 
     uptime_data[url].append(result)
+    print(f'URL {url} -> {result[1]} ({len(uptime_data[url])})')
 
 try:
     with open(data_file, 'w') as file:

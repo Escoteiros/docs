@@ -13,8 +13,8 @@ on:
       
 permissions:
   contents: write
+
 jobs:
-    
   uptime:
     runs-on: ubuntu-latest
     steps:
