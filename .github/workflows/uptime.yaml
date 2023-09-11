@@ -10,29 +10,8 @@ on:
 permissions:
   contents: write
 jobs:
-  # check-artifact:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Read old data
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #           name: uptime
-  
-  # generate-empty-artifact:
-  #   runs-on: ubuntu-latest
-  #   needs: ["check-artifact"]
-  #   if: failure()
-  #   steps:
-  #     - name: Generate empty uptime.json
-  #       run: echo {} > uptime.json
-  #     - name: Upload empty uptime.json
-  #       uses: actions/upload-artifact@v3
-  #       with:
-  #         name: uptime
-  #         path: uptime.json
-
-      
-  deploy:
+    
+  uptime:
     runs-on: ubuntu-latest
     env: 
       CI_COMMIT_MESSAGE: Continuous Integration Build Artifacts
@@ -70,16 +49,6 @@ jobs:
           name: uptime
           path: uptime.json
     
-      # - name: Create commit with updates
-      #   uses: devops-infra/action-commit-push@master
-      #   with:
-      #     github_token: "${{ secrets.GITHUB_TOKEN }}"
-      #     add_timestamp: true
-      #     commit_prefix: "[AUTO]"
-      #     commit_message: "Uptime"
-      #     force: false
-      #     target_branch: main
-
       # Commit and push all changed files. 
       # Must only affect files that are listed in "paths-ignore".
       - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
