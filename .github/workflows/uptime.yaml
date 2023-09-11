@@ -28,16 +28,12 @@ jobs:
           cache: pip
                   
       - name: Install dependencies
-        run: pip install httpx
-
-      - name: Read previous uptime data
-        continue-on-error: true
-        uses: actions/download-artifact@v3     
+        run: pip install httpx      
 
       - name: Create uptime.md        
         run: |
-          mkdir -p .github/uptime
           python .github/scripts/uptime.py .github/uptime/uptime.json .github/uptime/uptime.md
+          ls -la
             
       - name: Commit & Push changes
         uses: actions-js/push@master
