@@ -57,6 +57,8 @@ jobs:
           cache: pip
       - run: pip install mkdocs-material mkdocs-minify-plugin      
       - name: Copy uptime.md
-        run: cp .github/uptime/uptime.md docs/uptime.md
+        run: |
+          tree .github
+          cp .github/uptime/uptime.md docs/uptime.md
       - name: Run mkdocs
         run: mkdocs gh-deploy --force
