@@ -36,9 +36,13 @@ jobs:
       - name: Create uptime.md        
         run: |
           python .github/scripts/uptime.py .github/uptime/uptime.json .github/uptime/uptime.md                 
+
+      - name: Commit and Push changes
+        run: |
           git config --global user.name "[AUTO UPTIME]"
           git config --global user.email "guionardo.furlan@escoteiros.org.br"
-          git commit -a -m "[UPTIME] updating data"
+          git add .
+          git commit -m "[UPTIME] updating data"
           git push
                 
 
