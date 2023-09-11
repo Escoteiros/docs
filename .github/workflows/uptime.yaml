@@ -43,7 +43,7 @@ jobs:
         if: always()
         run: python .github/scripts/uptime.py uptime.json docs/uptime.md
 
-      - name: Upload math result for job 1
+      - name: Upload uptime.json
         uses: actions/upload-artifact@v3
         with:
           name: uptime
@@ -54,19 +54,7 @@ jobs:
         with:
           name: uptime_md
           path: docs/uptime.md
-          
-    
-      # Commit and push all changed files. 
-      # Must only affect files that are listed in "paths-ignore".
-      # - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
-      #   # Only run on main branch push (e.g. pull request merge).
-      #   if: github.event_name == 'push'
-      #   run: |
-      #     git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-      #     git config --global user.email "guionardo.furlan@escoteiros.org.br"
-      #     git add docs/uptime.md
-      #     git commit -m "Uptime data `date +%c`"
-      #     git push
+        
 
   mkdocs:
     runs-on: ubuntu-latest
@@ -88,6 +76,6 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v3
         with:
-            name: uptime-md
+            name: uptime_md
             path: docs/uptime.md   
       - run: mkdocs gh-deploy --force
