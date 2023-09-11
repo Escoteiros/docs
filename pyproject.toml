@@ -11,6 +11,7 @@ python = "^3.8"
 mkdocs-material = "^9.2.8"
 mkdocs-minify-plugin = "^0.7.1"
 httpx = "^0.25.0"
+mkdocs = {extras = ["i18n"], version = "^1.5.2"}
 
 
 [build-system]

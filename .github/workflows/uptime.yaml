@@ -34,28 +34,20 @@ jobs:
       - name: Install dependencies
         run: pip install httpx
 
-      - name: Read old data
+      - name: Read previous uptime data
         continue-on-error: true
-        uses: actions/download-artifact@v3
-        with:
-            name: uptime
+        uses: actions/download-artifact@v3     
 
-      - name: Create uptime.md
-        if: always()
+      - name: Create uptime.md        
         run: python .github/scripts/uptime.py uptime.json docs/uptime.md
 
       - name: Upload uptime.json
         uses: actions/upload-artifact@v3
         with:
           name: uptime
-          path: uptime.json
-      
-      - name: Upload uptime.md
-        uses: actions/upload-artifact@v3
-        with:
-          name: uptime_md
-          path: docs/uptime.md
-        
+          path: |
+            uptime.json
+            docs/uptime.md                    
 
   mkdocs:
     runs-on: ubuntu-latest
@@ -77,6 +69,5 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v3
         with:
-            name: uptime_md
-            path: docs/uptime.md   
+            path: docs 
       - run: mkdocs gh-deploy --force
