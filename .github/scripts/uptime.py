@@ -7,23 +7,29 @@ from zoneinfo import ZoneInfo
 
 import httpx
 
+
 def get_now():
     dt = datetime.datetime.now(datetime.timezone.utc)
     utc_time = dt.replace(tzinfo=datetime.timezone.utc)
     return utc_time
 
+
 def get_timestamp():
     return int(get_now().timestamp())
 
-def from_timestamp(timestamp: int)->datetime.datetime:
-    dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
-    return dt.replace(second=0, microsecond=0)    
 
-def get_localtime(ts:datetime.datetime)->datetime.datetime:
+def from_timestamp(timestamp: int) -> datetime.datetime:
+    dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
+    return dt.replace(second=0, microsecond=0)
+
+
+def get_localtime(ts: datetime.datetime) -> datetime.datetime:
     return ts.replace(tzinfo=ZoneInfo('America/Sao_Paulo'))
 
+
 URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
-        'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/naoexiste']
+        'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/paxtu',
+        'https://paxtu.escoteiros.org.br/meupaxtu']
 
 data_file = os.path.abspath(
     'uptime.json' if not len(sys.argv) > 1 else sys.argv[1])
@@ -70,7 +76,7 @@ def get_data_statuses(data):
     last_days_statuses = ''
     for last_day in last_days:
         success, fails = 0, 0
-        
+
         for status_code in old_statuses[last_day]:
             if 0 < status_code < 400:
                 success += 1
