@@ -33,7 +33,7 @@ jobs:
       - name: Create uptime.md        
         run: |
           python .github/scripts/uptime.py .github/uptime/uptime.json .github/uptime/uptime.md
-          ls -la
+          tree .github
             
       - name: Commit & Push changes
         uses: actions-js/push@master
