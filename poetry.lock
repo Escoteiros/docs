@@ -135,6 +135,16 @@ files = [
 ]
 
 [[package]]
+name = "csscompressor"
+version = "0.9.5"
+description = "A python port of YUI CSS Compressor"
+optional = false
+python-versions = "*"
+files = [
+    {file = "csscompressor-0.9.5.tar.gz", hash = "sha256:afa22badbcf3120a4f392e4d22f9fff485c044a1feda4a950ecc5eba9dd31a05"},
+]
+
+[[package]]
 name = "ghp-import"
 version = "2.1.0"
 description = "Copy your docs directly to the gh-pages branch."
@@ -150,6 +160,16 @@ python-dateutil = ">=2.8.1"
 
 [package.extras]
 dev = ["flake8", "markdown", "twine", "wheel"]
+
+[[package]]
+name = "htmlmin2"
+version = "0.1.13"
+description = "An HTML Minifier"
+optional = false
+python-versions = "*"
+files = [
+    {file = "htmlmin2-0.1.13-py3-none-any.whl", hash = "sha256:75609f2a42e64f7ce57dbff28a39890363bde9e7e5885db633317efbdf8c79a2"},
+]
 
 [[package]]
 name = "idna"
@@ -197,6 +217,16 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
+
+[[package]]
+name = "jsmin"
+version = "3.0.1"
+description = "JavaScript minifier."
+optional = false
+python-versions = "*"
+files = [
+    {file = "jsmin-3.0.1.tar.gz", hash = "sha256:c0959a121ef94542e807a674142606f7e90214a2b3d1eb17300244bbb5cc2bfc"},
+]
 
 [[package]]
 name = "markdown"
@@ -361,6 +391,23 @@ files = [
     {file = "mkdocs_material_extensions-1.1.1-py3-none-any.whl", hash = "sha256:e41d9f38e4798b6617ad98ca8f7f1157b1e4385ac1459ca1e4ea219b556df945"},
     {file = "mkdocs_material_extensions-1.1.1.tar.gz", hash = "sha256:9c003da71e2cc2493d910237448c672e00cefc800d3d6ae93d2fc69979e3bd93"},
 ]
+
+[[package]]
+name = "mkdocs-minify-plugin"
+version = "0.7.1"
+description = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mkdocs-minify-plugin-0.7.1.tar.gz", hash = "sha256:6abf8f5a0fddb476bddd38faba28390fd8c41ab63b0d7202e3ce3deeb9ab98cb"},
+    {file = "mkdocs_minify_plugin-0.7.1-py3-none-any.whl", hash = "sha256:29bd6a1aa5b0217a55b08333194e20cf1ff83b63fb6a22a33f10f8fa9745c28a"},
+]
+
+[package.dependencies]
+csscompressor = ">=0.9.5"
+htmlmin2 = ">=0.1.13"
+jsmin = ">=3.0.1"
+mkdocs = ">=1.4.1"
 
 [[package]]
 name = "packaging"
@@ -742,4 +789,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "0042f76b920e95966b5ab37d567d4bfc722de62c9effd7c8b339085c9cc03b18"
+content-hash = "4a74b46bbfa88fd34e4e1856534de893e0f76cccc6d359e1872e838222301ffc"

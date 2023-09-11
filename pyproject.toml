@@ -9,6 +9,7 @@ packages = [{include = "escoteirando_public_docs"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 mkdocs-material = "^9.2.8"
+mkdocs-minify-plugin = "^0.7.1"
 
 
 [build-system]

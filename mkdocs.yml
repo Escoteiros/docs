@@ -1,4 +1,22 @@
-site_name: My Docs
+site_name: Frontend para documentação pública do Open Paxtu
+repo_url: https://github.com/escoteiros/docs
 
 theme:
   name: material
+  logo: assets/logo.svg
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      cache_safe: true
+      # js_files:
+      #     - my/javascript/dir/file1.js
+      #     - my/javascript/dir/file2.js
+      # css_files:
+      #     - my/css/dir/file1.css
+      #     - my/css/dir/file2.css
