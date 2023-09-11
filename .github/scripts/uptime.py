@@ -3,17 +3,24 @@ import datetime
 import json
 import os
 import sys
+from zoneinfo import ZoneInfo
 
 import httpx
 
-def get_timestamp():
+def get_now():
     dt = datetime.datetime.now(datetime.timezone.utc)
     utc_time = dt.replace(tzinfo=datetime.timezone.utc)
-    return int(utc_time.timestamp())
+    return utc_time
+
+def get_timestamp():
+    return int(get_now().timestamp())
 
 def from_timestamp(timestamp: int)->datetime.datetime:
     dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
     return dt.replace(second=0, microsecond=0)    
+
+def get_localtime(ts:datetime.datetime)->datetime.datetime:
+    return ts.replace(tzinfo=ZoneInfo('America/Sao_Paulo'))
 
 URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
         'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/naoexiste']
@@ -21,7 +28,7 @@ URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
 data_file = os.path.abspath(
     'uptime.json' if not len(sys.argv) > 1 else sys.argv[1])
 uptime_md_file = os.path.abspath(
-    'docs/uptime.md' if not len(sys.argv) > 2 else sys.argv[2])
+    'uptime.md' if not len(sys.argv) > 2 else sys.argv[2])
 
 print('Reading data file:', data_file)
 try:
@@ -48,7 +55,7 @@ def check_url(url: str) -> int:
 
 
 def get_data_statuses(data):
-    last_24h = (datetime.datetime.utcnow()-datetime.timedelta(days=1)
+    last_24h = (get_now()-datetime.timedelta(days=1)
                 ).replace(second=0, microsecond=0)
     old_statuses = collections.defaultdict(list)
     statuses = {}
@@ -63,8 +70,8 @@ def get_data_statuses(data):
     last_days_statuses = ''
     for last_day in last_days:
         success, fails = 0, 0
-
-        for status_code in old_statuses[last_days]:
+        
+        for status_code in old_statuses[last_day]:
             if 0 < status_code < 400:
                 success += 1
             else:
@@ -90,7 +97,7 @@ def get_data_statuses(data):
     today_statuses = ''
     for t in today_times:
         icon = '✔️' if 0 < statuses[t] < 400 else '❌'
-        today_statuses += f'<span title="{t} : {statuses[t]}">{icon}</span>'
+        today_statuses += f'<span title="{get_localtime(t)} : {statuses[t]}">{icon}</span>'
 
     return f'{last_days_statuses}|{today_statuses}'
 
@@ -113,7 +120,7 @@ except Exception as exc:
 print('Saving markdown ', uptime_md_file)
 with open(uptime_md_file, 'w') as file:
     file.write(
-        f'# Monitoramento\n\nÚltima verificação: {datetime.datetime.utcnow()}\n\n')
+        f'# Monitoramento\n\nÚltima verificação: {get_localtime(get_now())}\n\n')
     file.write('|Serviço|Status|Últimas 24h|\n|---|---|---|\n')
     for url, data in uptime_data.items():
         file.write(f'|{url}|{get_data_statuses(data)}|\n')
