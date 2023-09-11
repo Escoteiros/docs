@@ -39,7 +39,7 @@ jobs:
         uses: actions/download-artifact@v3     
 
       - name: Create uptime.md        
-        run: python .github/scripts/uptime.py uptime.json docs/uptime.md
+        run: python .github/scripts/uptime.py uptime.json uptime.md
 
       - name: Upload uptime.json
         uses: actions/upload-artifact@v3
@@ -47,7 +47,7 @@ jobs:
           name: uptime
           path: |
             uptime.json
-            docs/uptime.md                    
+            uptime.md
 
   mkdocs:
     runs-on: ubuntu-latest
@@ -68,6 +68,7 @@ jobs:
       - name: Read uptime.md
         continue-on-error: true
         uses: actions/download-artifact@v3
-        with:
-            path: docs 
-      - run: mkdocs gh-deploy --force
+      - name: Copy uptime.md
+        run: cp uptime.md docs/uptime.md
+      - name: Run mkdocs
+        run: mkdocs gh-deploy --force
