@@ -43,8 +43,7 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}              
-          message: "[UPTIME] updating data"
-          directory: .github/uptime
+          message: "[UPTIME] updating data"          
 
   mkdocs:
     runs-on: ubuntu-latest
