@@ -56,6 +56,6 @@ jobs:
         continue-on-error: true
         uses: actions/download-artifact@v3
       - name: Copy uptime.md
-        run: cp uptime.md docs/uptime.md
+        run: cp uptime/uptime.md docs/uptime.md
       - name: Run mkdocs
         run: mkdocs gh-deploy --force
