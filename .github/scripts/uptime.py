@@ -13,17 +13,7 @@ def get_timestamp():
 
 def from_timestamp(timestamp: int)->datetime.datetime:
     dt = datetime.datetime.fromtimestamp(timestamp, datetime.timezone.utc)
-    return dt.replace(second=0, microsecond=0)
-  
-  
-# Getting the current date
-# and time
-dt = datetime.datetime.now(timezone.utc)
-  
-utc_time = dt.replace(tzinfo=timezone.utc)
-utc_timestamp = utc_time.timestamp()
-  
-print(utc_timestamp)
+    return dt.replace(second=0, microsecond=0)    
 
 URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
         'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/naoexiste']
