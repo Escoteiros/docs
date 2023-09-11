@@ -32,7 +32,10 @@ jobs:
         with:
             name: uptime
 
-      - run: python .github/scripts/uptime.py uptime.json docs/uptime.md
+      - name: Create uptime.md
+        if: always()
+        run: python .github/scripts/uptime.py uptime.json docs/uptime.md
+        
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
