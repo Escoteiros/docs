@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "escoteirando-public-docs"
+version = "0.1.0"
+description = "Frontend para documentação pública do Open Paxtu"
+authors = ["Guionardo Furlan <guionardo.furlan@escoteiros.org.br>"]
+readme = "README.md"
+packages = [{include = "escoteirando_public_docs"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mkdocs-material = "^9.2.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
