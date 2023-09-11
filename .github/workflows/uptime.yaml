@@ -1,0 +1,46 @@
+name: uptime
+
+on:
+  push:
+    branches:
+      - main
+      
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+            
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v3
+        with:
+          key: uptime-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            uptime-
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Read old data
+        uses: actions/download-artifact@v3
+        with:
+            name: uptime
+
+      - run: python .github/scripts/uptime.py uptime.json docs/uptime.md
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v3
+        with:
+          name: uptime
+          path: uptime.json
+
+      - name: Update uptime.md
+        run: |
+          git add docs/uptime.md
+          git commit -m "Update uptime data @ `date +%c`"
+          git push
