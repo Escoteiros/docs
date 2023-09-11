@@ -48,16 +48,46 @@ jobs:
         with:
           name: uptime
           path: uptime.json
+      
+      - name: Upload uptime.md
+        uses: actions/upload-artifact@v3
+        with:
+          name: uptime_md
+          path: docs/uptime.md
+          
     
       # Commit and push all changed files. 
       # Must only affect files that are listed in "paths-ignore".
-      - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
-        # Only run on main branch push (e.g. pull request merge).
-        if: github.event_name == 'push'
-        run: |
-          git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
-          git config --global user.email "guionardo.furlan@escoteiros.org.br"
-          git add docs/uptime.md
-          git commit -m "Uptime data `date +%c`"
-          git push
+      # - name: GIT Commit Build Artifacts (coverage, dist, devdist, docs)
+      #   # Only run on main branch push (e.g. pull request merge).
+      #   if: github.event_name == 'push'
+      #   run: |
+      #     git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+      #     git config --global user.email "guionardo.furlan@escoteiros.org.br"
+      #     git add docs/uptime.md
+      #     git commit -m "Uptime data `date +%c`"
+      #     git push
 
+  mkdocs:
+    runs-on: ubuntu-latest
+    needs: ["uptime"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material mkdocs-minify-plugin
+      - name: Read uptime.md
+        continue-on-error: true
+        uses: actions/download-artifact@v3
+        with:
+            name: uptime-md
+            path: docs/uptime.md   
+      - run: mkdocs gh-deploy --force
