@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - '.github/workflows/uptime.yaml'
+      - '.github/scripts/uptime.py'
       
 permissions:
   contents: write
