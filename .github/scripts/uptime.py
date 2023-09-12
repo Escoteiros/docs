@@ -128,5 +128,6 @@ with open(uptime_md_file, 'w') as file:
     file.write(
         f'# Monitoramento\n\nÚltima verificação: {get_localtime(get_now())}\n\n')
     file.write('|Serviço|Status|Últimas 24h|\n|---|---|---|\n')
-    for url, data in uptime_data.items():
-        file.write(f'|{url}|{get_data_statuses(data)}|\n')
+    for url in URLS:
+        if data := uptime_data.get(url):
+            file.write(f'|{url}|{get_data_statuses(data)}|\n')
