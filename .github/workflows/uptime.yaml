@@ -50,16 +50,3 @@ jobs:
           git add .
           git commit -m "[UPTIME] updating data"
           git push
-
-  mkdocs:
-    runs-on: ubuntu-latest
-    needs: ["uptime"]
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-          cache: pip
-      - run: pip install mkdocs-material mkdocs-minify-plugin      
-      - name: Run mkdocs
-        run: mkdocs gh-deploy --force
