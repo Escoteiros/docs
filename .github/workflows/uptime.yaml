@@ -36,6 +36,8 @@ jobs:
         run: pip install httpx
 
       - name: Create uptime.md
+        env:
+          PAXTU_LOGIN_PAYLOAD: ${{ secrets.PAXTU_LOGIN_PAYLOAD }}
         run: |
           mkdir -p .github/uptime
           python .github/scripts/uptime.py .github/uptime/uptime.json docs/uptime.md
