@@ -17,6 +17,7 @@ permissions:
 jobs:
   uptime:
     runs-on: ubuntu-latest
+    environment: uptime
     steps:
       - name: Checkout
         continue-on-error: true
