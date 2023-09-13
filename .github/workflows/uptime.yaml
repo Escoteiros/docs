@@ -19,10 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
+        continue-on-error: true
         uses: actions/checkout@v3
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+          #ref: ${{ github.event.pull_request.head.ref }}
+          ref: uptime_data
         
       - name: Setup python
         uses: actions/setup-python@v4
@@ -35,15 +37,16 @@ jobs:
 
       - name: Create uptime.md        
         run: |
+          mkdir -p .github/uptime
           python .github/scripts/uptime.py .github/uptime/uptime.json .github/uptime/uptime.md                 
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "[AUTO UPTIME]"
           git config --global user.email "guionardo.furlan@escoteiros.org.br"
-          git add .
+          git add .github/uptime
           git commit -m "[UPTIME] updating data"
-          git push
+          git push origin uptime_data
                 
   mkdocs:
     runs-on: ubuntu-latest
