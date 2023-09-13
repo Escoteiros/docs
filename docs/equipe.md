@@ -1,7 +1,31 @@
-| Escotista                                                                       | Ramo      | Grupo Escoteiro | Registro  | Obs                                       |
-| ------------------------------------------------------------------------------- | --------- | --------------- | --------- | ----------------------------------------- |
-| [André Luiz da Silva](mailto:andre.ls@escoteiros.org.br)                        | Dirigente | UEL GOYAZ 9GO   | 901712-7  | Diretor Administrativo da Região de Goiás |
-| [Guionardo Furlan](mailto:guionardo.furlan@escoteiros.org.br)                   | Lobo      | GELB 32/SC      | 1247937-3 | ---                                       |
-| [Luiz Claudio de Souza](mailto:luiz.souza@escoteiros.org.br)                    | ---       | ---             | 1410848   | ---                                       |
-| [Rodolfo Guimarães Vieira da Silva](mailto:rodolfo.guimaraes@escoteiros.org.br) | ---       | ---             | 1371609   | ---                                       |
+---
+title: Equipe
+---
 
+| Escotista                                                                  | Registro  |
+| -------------------------------------------------------------------------- | --------- |
+| [André Luiz da Silva](#andré-luiz-da-silva-✉️)                             | 901712-7  |
+| [Guionardo Furlan](#guionardo-furlan-✉️)                                   | 1247937-3 |
+| [Luiz Claudio de Souza](#luiz-claudio-de-souza-✉️)                         | 1410848   |
+| [Rodolfo Guimarães Vieira da Silva](#rodolfo-guimarães-vieira-da-silva-✉️) | 1371609   |
+
+## André Luiz da Silva [✉️](mailto:andre.ls@escoteiros.org.br)
+
+- Dirigente, na UEL GOYAZ 9GO. Diretor administrativo da região de Goiás.
+
+## Guionardo Furlan [✉️](mailto:guionardo.furlan@escoteiros.org.br)
+
+- Escotista, chefe auxiliar na Alcateia 1 do Grupo Escoteiro Leões de Blumenau 32/SC, Bagheera desde 2018.
+- Engenheiro de Software Sênior, na AmbevTech.
+- Especialista em microsserviços e arquitetura de sistemas.
+- Linguagens: C#, Python, Golang, JS, Bash.
+- Infra: PostgreSQL, MongoDB, MySQL, SQL Server, Redis, RabbitMQ, Azure, Linux.
+- Ministra treinamentos para desenvolvedores.
+
+## Luiz Claudio de Souza [✉️](mailto:luiz.souza@escoteiros.org.br)
+
+- ...
+
+## Rodolfo Guimarães Vieira da Silva [✉️](mailto:rodolfo.guimaraes@escoteiros.org.br)
+
+- ...
