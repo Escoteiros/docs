@@ -23,8 +23,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
-          #ref: ${{ github.event.pull_request.head.ref }}
-          ref: uptime_data
+          ref: ${{ github.event.pull_request.head.ref }}
+          # ref: uptime_data
         
       - name: Setup python
         uses: actions/setup-python@v4
@@ -44,9 +44,10 @@ jobs:
         run: |
           git config --global user.name "[AUTO UPTIME]"
           git config --global user.email "guionardo.furlan@escoteiros.org.br"
+          
           git add .github/uptime
           git commit -m "[UPTIME] updating data"
-          git push origin uptime_data
+          git push
                 
   mkdocs:
     runs-on: ubuntu-latest
