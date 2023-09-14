@@ -34,7 +34,7 @@ title: Equipe
 - Analista Sênior de Comunicação e Ciência de Dados;
 - Especialista Sênior em Sistemas de Alta Disponibilidade, DevOPS, Unix, Linux e Gestão de TI;
 - Linguagens: HTML5, PHP, CGI, Phyton, ShellScript, CSS, JS, Bash;
-- Infra: Apache, Nginx, MariaDB, MySQL, Redis, RabbitMQ, AWS, GCloud, Azure, Linux.
+- Infra: Apache, Nginx, MariaDB, MySQL, CloudFare, Redis, AWS, ProjectShield, GCloud, Azure, Linux.
 
 ## Umberto Velasques Lhullier [✉️](mailto:umberto.lhullier@escoteiros.org.br)
 
