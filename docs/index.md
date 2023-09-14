@@ -1,5 +1,5 @@
-# Bem vindo à documentação de desenvolvimento e operação do Open Paxtu
+# Bem vindo ao Frontend para Monitoramento da Disponibilidade de Serviços de TI dos Escoteiros do Brasil
 
-Esta ferramenta visa atualizar o Paxtu atual, atendendo às mesmas funções já existentes utilizando novas tecnologias e possibilitando melhorias e novas características.
+Esta ferramenta visa monitorar a disponiblidade, auxiliando as equipes envolvidas na identificação e análise e solução das ocorrências.
 
 * Documento em construção *
