@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "escoteirando-public-docs"
 version = "0.1.0"
-description = "Frontend para documentação pública do Open Paxtu"
+description = "Frontend Monitoramento de Disponibilidade de Serviços"
 authors = ["Guionardo Furlan <guionardo.furlan@escoteiros.org.br>"]
 readme = "README.md"
 packages = [{include = "escoteirando_public_docs"}]
