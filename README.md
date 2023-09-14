@@ -1,5 +1,5 @@
-# Frontend para documentação pública do Open Paxtu
+# Monitoramento de Disponibilidade de Serviços
 
 [![uptime](https://github.com/Escoteiros/docs/actions/workflows/uptime.yaml/badge.svg)](https://github.com/Escoteiros/docs/actions/workflows/uptime.yaml)
 
-Repositório para registrar a documentação pública de desenvolvimento e operação do Open Paxtu.
+Repositório para registrar a disponibilidade de serviços de TI.
