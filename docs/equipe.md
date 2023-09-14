@@ -30,6 +30,7 @@ title: Equipe
 
 - Escotista Intermediário (em conclusão), assistente no Grupo Escoteiro Guanandi 423/SP, apelidado pelos jovens como Chefe Itaymberê;
 - Instrutor de Especialidades - Meliponicultura: criação de abelhas indígenas sem ferrão nativas do Brasil, pela história da Roca das Abelhas atuo também como Chill desde 2019;
+- Suporte Voluntário de TI e Telecomunicações e Análise de Dados para Unidades Escoteiras Locais do Sul de Minas, Vale do Paraíba e Litoral Norte de São Paulo.
 - Analista Sênior de Comunicação e Ciência de Dados;
 - Especialista Sênior em Sistemas de Alta Disponibilidade, DevOPS, Unix, Linux e Gestão de TI;
 - Linguagens: HTML5, PHP, CGI, Phyton, ShellScript, CSS, JS, Bash;
