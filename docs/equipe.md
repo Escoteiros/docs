@@ -26,6 +26,15 @@ title: Equipe
 
 - ...
 
-## Rodolfo Guimarães Vieira da Silva [✉️](mailto:rodolfo.guimaraes@escoteiros.org.br)
+## Itaymberê Rodolfo Guimarães Vieira da Silva [✉️](mailto:rodolfo.guimaraes@escoteiros.org.br)
+
+- Escotista Intermediário (em conclusão), assistente no Grupo Escoteiro Guanandi 423/SP, apelidado pelos jovens como Chefe Itaymberê;
+- Instrutor de Especialidades - Meliponicultura: criação de abelhas indígenas sem ferrão nativas do Brasil, pela história da Roca das Abelhas atuo também como Chill desde 2019;
+- Analista Sênior de Comunicação e Ciência de Dados;
+- Especialista Sênior em Sistemas de Alta Disponibilidade, DevOPS, Unix, Linux e Gestão de TI;
+- Linguagens: HTML5, PHP, CGI, Phyton, ShellScript, CSS, JS, Bash;
+- Infra: Apache, Nginx, MariaDB, MySQL, Redis, RabbitMQ, AWS, GCloud, Azure, Linux.
+
+## Umberto Velasques Lhullier [✉️](mailto:umberto.lhullier@escoteiros.org.br)
 
 - ...
