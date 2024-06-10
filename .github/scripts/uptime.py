@@ -88,7 +88,8 @@ def try_paxtu_login() -> int:
 
 URLS = ['https://github.com', 'https://paxtu.escoteiros.org.br',
         'https://escoteiros.org.br', 'https://paxtu.escoteiros.org.br/paxtu',
-        'https://paxtu.escoteiros.org.br/meupaxtu']
+        'https://paxtu.escoteiros.org.br/meupaxtu','https://sigue.escoteiros.org.br/siguenacional',
+        'https://id.escoteiros.org.br/']
 
 data_file = os.path.abspath(
     'uptime.json' if len(sys.argv) <= 1 else sys.argv[1]
